@@ -15,13 +15,12 @@ export default function CardTestiComponent({
 }: CardTestiProps) {
   return (
     <div
-      className={`rounded-2xl p-6 shadow-lg ${
+      className={`rounded-3xl p-6 transition-transform duration-300 ${
         highlighted
-          ? "bg-gradient-to-br from-black via-purple-900 to-black opacity-90"
-          : "bg-black opacity-70"
-      } text-white transition-transform duration-300`}
+          ? "bg-gradient-to-br from-[#0f766e]/15 via-white to-[#0f766e]/15 text-ink shadow-xl"
+          : "glass-panel text-ink"
+      }`}
     >
-
       <div className="flex items-center mb-4">
         <Image
           src={clientPhoto}
@@ -34,9 +33,7 @@ export default function CardTestiComponent({
           <h3 className="font-bold text-lg">{clientName}</h3>
         </div>
       </div>
-
-
-      <p className="text-gray-200 leading-relaxed">{testimonial}</p>
+      <p className="text-sm leading-relaxed text-ink/80">{testimonial}</p>
     </div>
   );
 }

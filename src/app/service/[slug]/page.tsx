@@ -42,10 +42,10 @@ export default function ServiceSlug() {
   }, [params]);
 
   return (
-    <div className="w-full px-4 py-8">
+    <section className="container mx-auto px-4 py-16">
       {service && (
-        <div className="bg-white shadow-lg rounded-lg">
-          <div className="relative w-full h-[500px] rounded-t-lg overflow-hidden">
+        <div className="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5">
+          <div className="relative w-full h-72 md:h-[420px]">
             <Image
               src={`https:${
                 (service.image as IContentfulAsset)?.fields.file.url
@@ -54,19 +54,22 @@ export default function ServiceSlug() {
               className="object-cover"
               alt={service.name || "Article Image"}
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
           </div>
 
-          <div className="p-3 max-w-7xl mx-auto">
-            <h1 className="text-5xl font-bold text-gray-900 mb-6 text-center">
+          <div className="px-6 py-10 md:px-10">
+            <p className="text-xs uppercase tracking-[0.3em] text-ink/50">
+              Service Detail
+            </p>
+            <h1 className="mt-4 font-display text-3xl md:text-5xl text-ink">
               {service.title}
             </h1>
-
-            <div className="text-justify prose max-w-none text-gray-700 mb-8 mx-auto">
+            <div className="mt-8 max-w-3xl text-ink/70 leading-relaxed">
               <RichText document={service.description} />
             </div>
           </div>
         </div>
       )}
-    </div>
+    </section>
   );
 }

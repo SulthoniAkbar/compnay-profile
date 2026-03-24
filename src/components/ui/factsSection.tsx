@@ -9,44 +9,65 @@ import {
 
 export default function FactsSection() {
   return (
-    <div className="bg-gray-50 py-6">
+    <section className="relative py-16">
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top,_rgba(255,107,74,0.12),_transparent_55%)]"></div>
       <div className="container mx-auto px-6 text-center">
-        <h2 className="text-3xl lg:text-4xl font-bold mb-8">Our Facts</h2>
+        <p className="text-xs uppercase tracking-[0.3em] text-[#0f766e]">
+          By the Numbers
+        </p>
+        <h2 className="font-display text-3xl lg:text-5xl text-ink mt-3 mb-10">
+          Our Facts
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="flex flex-col items-center justify-center bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-            <FaUsers className="text-green-600 text-4xl mb-4" />
-            <h3 className="text-2xl font-bold text-green-600">100+</h3>
-            <p className="text-gray-600 mt-2">Clients & Partners</p>
-          </div>
-          <div className="flex flex-col items-center justify-center bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-            <FaCheckCircle className="text-green-600 text-4xl mb-4" />
-            <h3 className="text-2xl font-bold text-green-600">50+</h3>
-            <p className="text-gray-600 mt-2">Problem solved</p>
-          </div>
-          <div className="flex flex-col items-center justify-center bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-            <FaClock className="text-green-600 text-4xl mb-4" />
-            <h3 className="text-2xl font-bold text-green-600">10+</h3>
-            <p className="text-gray-600 mt-2">
-              Years experienced in this industry
-            </p>
-          </div>
-          <div className="flex flex-col items-center justify-center bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-            <FaCode className="text-green-600 text-4xl mb-4" />
-            <h3 className="text-2xl font-bold text-green-600">10B+</h3>
-            <p className="text-gray-600 mt-2">Line of code has been written</p>
-          </div>
-          <div className="flex flex-col items-center justify-center bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-            <FaUserTie className="text-green-600 text-4xl mb-4" />
-            <h3 className="text-2xl font-bold text-green-600">100+</h3>
-            <p className="text-gray-600 mt-2">DOT Talents</p>
-          </div>
-          <div className="flex flex-col items-center justify-center bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow">
-            <FaSmile className="text-green-600 text-4xl mb-4" />
-            <h3 className="text-2xl font-bold text-green-600">UNLIMITED</h3>
-            <p className="text-gray-600 mt-2">Client's smile</p>
-          </div>
+          {[
+            {
+              icon: <FaUsers />,
+              value: "100+",
+              label: "Clients & Partners",
+            },
+            {
+              icon: <FaCheckCircle />,
+              value: "50+",
+              label: "Problems solved",
+            },
+            {
+              icon: <FaClock />,
+              value: "10+",
+              label: "Years in the industry",
+            },
+            {
+              icon: <FaCode />,
+              value: "10B+",
+              label: "Lines of code shipped",
+            },
+            {
+              icon: <FaUserTie />,
+              value: "100+",
+              label: "DOT talents",
+            },
+            {
+              icon: <FaSmile />,
+              value: "Unlimited",
+              label: "Client smiles",
+            },
+          ].map((item) => (
+            <div
+              key={item.label}
+              className="group glass-panel rounded-3xl p-6 text-left transition hover:-translate-y-1"
+            >
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0f766e]/10 text-2xl text-[#0f766e]">
+                  {item.icon}
+                </div>
+                <div className="text-3xl font-semibold text-ink">{item.value}</div>
+              </div>
+              <p className="mt-4 text-sm uppercase tracking-[0.2em] text-[#0f766e]">
+                {item.label}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

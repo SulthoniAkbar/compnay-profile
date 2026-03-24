@@ -38,13 +38,19 @@ export default function About() {
   }, []);
 
   return (
-    <div className="relative bg-blue-950 text-white overflow-hidden">
+    <div className="relative overflow-hidden bg-[#111827] text-white">
+      <div className="absolute -left-32 top-20 h-72 w-72 rounded-full bg-[#0f766e]/15 blur-3xl"></div>
+      <div className="absolute -right-32 bottom-20 h-72 w-72 rounded-full bg-[#0f766e]/15 blur-3xl"></div>
+
       <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center px-4 py-16 lg:py-32 space-y-8 lg:space-y-0">
         <div className="flex-1 text-center lg:text-left">
-          <h1 className="text-4xl lg:text-6xl font-bold">
-            We Are <span className="text-green-500">Sentimental Engineers</span>
+          <p className="text-xs uppercase tracking-[0.3em] text-white/60">
+            About Us
+          </p>
+          <h1 className="font-display text-4xl lg:text-6xl mt-4">
+            We Are <span className="text-[#0f766e]">Sentimental Engineers</span>
           </h1>
-          <p className="mt-4 text-lg text-justify mr-4 lg:text-xl text-gray-300">
+          <p className="mt-4 text-base lg:text-lg text-white/75">
             We professionally deliver digital solutions using agile methodology
             to help established companies and startups perform by providing
             high-quality software development services.
@@ -56,25 +62,25 @@ export default function About() {
             src="/cover.png"
             alt="Sentimental Engineers"
             fill
-            className="object-cover rounded-lg shadow-lg"
+            className="object-cover rounded-2xl shadow-xl"
           />
         </div>
       </div>
       <div className="mt-12">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-white">
+          <h2 className="font-display text-3xl lg:text-4xl mb-12 text-white">
             Our Vision
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {dataVisionCompany.map((vision) => (
               <div
                 key={vision.id}
-                className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center hover:shadow-lg transition duration-300"
+                className="glass-panel rounded-2xl p-6 flex flex-col items-center text-center hover:-translate-y-1 transition duration-300 text-ink"
               >
-                <div className="bg-green-100 text-green-600 w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">
+                <div className="bg-[#0f766e]/10 text-[#0f766e] w-12 h-12 rounded-full flex items-center justify-center text-xl font-bold mb-4">
                   {vision.id}
                 </div>
-                <p className="text-gray-700 font-medium">
+                <p className="text-ink/80 font-medium">
                   {vision.description}
                 </p>
               </div>
@@ -83,14 +89,16 @@ export default function About() {
         </div>
       </div>
       <div className="pt-20 max-w-4xl mx-auto text-center py-10">
-        <h3 className="text-5xl font-semibold text-white mb-4">Our Mission</h3>
-        <p className="text-lg lg:text-xl text-gray-300">
+        <h3 className="font-display text-5xl font-semibold text-white mb-4">
+          Our Mission
+        </h3>
+        <p className="text-base lg:text-lg text-white/75">
           {dataMissionCompany[0]?.description}
         </p>
       </div>
       <div className="text-white py-16 px-6">
         <div className="max-w-7xl mx-auto text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold mb-10">
+          <h2 className="font-display text-3xl lg:text-4xl mb-10">
             Introduce Our Teams
           </h2>
           {loading ? (
@@ -100,7 +108,7 @@ export default function About() {
               {teamMembers.map((member, index) => (
                 <div
                   key={index}
-                  className="bg-white text-black rounded-lg shadow-lg overflow-hidden"
+                  className="glass-panel text-ink rounded-2xl shadow-lg overflow-hidden"
                 >
                   <div className="relative h-64">
                     <Image
@@ -111,11 +119,11 @@ export default function About() {
                     />
                   </div>
                   <div className="p-6 text-center">
-                    <h3 className="text-xl font-bold">
+                    <h3 className="text-xl font-semibold">
                       {member.name.first} {member.name.last}
                     </h3>
-                    <p className="text-gray-600">Team Member</p>
-                    <div className="flex justify-center space-x-4 mt-4 text-gray-600">
+                    <p className="text-ink/60">Team Member</p>
+                    <div className="flex justify-center space-x-4 mt-4 text-ink/60">
                       <a href="#" aria-label="LinkedIn">
                         <i className="fab fa-linkedin"></i>
                       </a>
@@ -132,7 +140,7 @@ export default function About() {
             </div>
           )}
           <div className="mt-12 space-x-4">
-            <button className="px-6 py-3 bg-orange-500 text-white font-bold rounded-lg hover:bg-orange-600 transition">
+            <button className="rounded-full bg-[#0f766e] px-6 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-white transition hover:bg-[#138577]">
               Collaborate with Us
             </button>
           </div>
